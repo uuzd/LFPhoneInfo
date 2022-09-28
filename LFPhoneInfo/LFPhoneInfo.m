@@ -121,7 +121,7 @@
 // 当前设备总内存, 返回值为兆 MB, e.g. iPhone 总内存为 2048 MB
 + (void)setDeviceTotalMemory:(CGFloat)deviceTotalMemory{}
 + (CGFloat)deviceTotalMemory{
-    return [NSProcessInfo processInfo].physicalMemory/(1024.0*1024.0);
+    return [NSProcessInfo processInfo].physicalMemory/(1000.0*1000.0);
 }
 
 // 当前 App 占用的设备内存，返回值为兆 MB, e.g. 占用 43 MB
