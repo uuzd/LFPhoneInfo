@@ -136,7 +136,7 @@
     } else {
         NSLog(@"Error with task_info(): %s", mach_error_string(kernelReturn));
     }
-    return memoryUsageInByte/(1024.0*1024.0);
+    return memoryUsageInByte/(1000.0*1000.0);
 }
 
 // 当前磁盘总空间，返回值为兆 MB，0为异常 e.g. 总共 16 GB 即 16384 MB
@@ -147,7 +147,7 @@
     if (error) return 0;
     int64_t space =  [[attrs objectForKey:NSFileSystemSize] longLongValue];
     if (space < 0) space = 0;
-    return space/(1024.0*1024.0);
+    return space/(1000.0*1000.0);
 }
 
 // 当前磁盘未使用，返回值为兆 MB，0为异常 e.g. 空闲 2200 MB
@@ -158,7 +158,7 @@
     if (error) return 0;
     int64_t space =  [[attrs objectForKey:NSFileSystemFreeSize] longLongValue];
     if (space < 0) space = 0;
-    return space/(1024.0*1024.0);
+    return space/(1000.0*1000.0);
 }
 
 // 当前磁盘已经使用，返回值为兆 MB，0为异常 e.g. 已使用 2200 MB
